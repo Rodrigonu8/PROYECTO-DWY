@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse, reverse_lazy
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.db.models import Q 
+from .models import Portico
+
 
 # Create your views here.
+def listar_porticos(request):
+    porticos = Portico.objects.all()
+    return render(request, "Registro/listar_porticos.html", {'porticos': porticos})
+ 
