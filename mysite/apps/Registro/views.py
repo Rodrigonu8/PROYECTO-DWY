@@ -85,13 +85,9 @@ class PorticoUpdate(UpdateView):
     template_name = 'Registro/editar_portico.html'
     success_url = reverse_lazy('listar_porticos')
 
-
 # clase borrar portico
 
 class PorticoDelete(DeleteView):
     model = Portico
     template_name = 'Registro/portico_delete.html'
     success_url = reverse_lazy('listar_porticos')
-
-
- 
