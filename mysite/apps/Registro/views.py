@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.db.models import Q 
 from .models import Portico, Bicicleta
-from .forms import porticoForm
+from .forms import porticoForm, bicicletaForm
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse, reverse_lazy
 
@@ -91,3 +91,82 @@ class PorticoDelete(DeleteView):
     model = Portico
     template_name = 'Registro/portico_delete.html'
     success_url = reverse_lazy('listar_porticos')
+
+
+
+# agregar bicicleta
+
+def agregar_bicicleta(request):
+    if request.method == "POST":
+        form = bicicletaForm(request.POST)
+        if form.is_valid():
+            model_instance = form.save(commit=False)
+            model_instance.save()
+            return redirect("/agregar_bicicleta")
+    else:
+        form = bicicletaForm()
+        return render(request, "Registro/agregar_bicicleta.html", {'form': form})
+
+
+# borrar bicicleta
+
+def borrar_bicicleta(request, bicicleta_id):
+    # Recuperamos la instancia de la carrera y la borramos
+    instancia = Bicicleta.objects.get(id=bicicleta_id)
+    instancia.delete()
+
+    # Después redireccionamos de nuevo a la lista
+    return redirect('listar_bicicletas')
+
+# editar bicicleta
+
+def editar_bicicleta(request, bicicleta_id):
+    # Recuperamos la instancia de la carrera
+    instancia = Bicicleta.objects.get(id=bicicleta_id)
+
+    # Creamos el formulario con los datos de la instancia
+    form = bicicletaForm(instance=instancia)
+
+    # Comprobamos si se ha enviado el formulario
+    if request.method == "POST":
+        # Actualizamos el formulario con los datos recibidos
+        form = bicicletaForm(request.POST, instance=instancia)
+        # Si el formulario es válido...
+        if form.is_valid():
+            # Guardamos el formulario pero sin confirmarlo,
+            # así conseguiremos una instancia para manipular antes de grabar
+            instancia = form.save(commit=False)
+            # Podemos guardar cuando queramos
+            instancia.save()
+
+    # Si llegamos al final renderizamos el formulario
+    return render(request, "Registro/editar_bicicleta.html", {'form': form})
+
+
+# clases crear bicicleta
+
+class BicicletaCreate(CreateView):
+    model = Bicicleta
+    form_class = bicicletaForm
+    template_name = 'Registro/agregar_bicicleta.html'
+    success_url = reverse_lazy("listar_bicicletas")
+
+# clase listar bicicleta
+
+class BicicletaList(ListView):
+    model = Bicicleta
+    template_name = 'Registro/listar_bicicletas.html'
+
+# clase modificar bicicleta
+class BicicletaUpdate(UpdateView):
+    model = Bicicleta
+    form_class = bicicletaForm
+    template_name = 'Registro/editar_bicicleta.html'
+    success_url = reverse_lazy('listar_bicicletas')
+
+# clase borrar bicicleta
+
+class BicicletaDelete(DeleteView):
+    model = Bicicleta
+    template_name = 'Registro/bicicleta_delete.html'
+    success_url = reverse_lazy('listar_bicicletas')

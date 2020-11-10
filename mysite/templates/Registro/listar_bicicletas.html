@@ -16,6 +16,10 @@
             <p> nro pórtico: {{ b.id_portico }} </p>
             <p> modelo: {{ b.modelo }} </p>
             <p> en pórtico: {{ b.candado }} </p>
+            <td>
+              <a class="btn btn-primary" href="{% url 'edit_bicicleta' b.id_bicicleta %}">Editar</a>
+              <a class="btn btn-danger" href="{% url 'del_bicicleta' b.id_bicicleta %}">Eliminar</a>
+          </td>    
         </div>
         <br>
     {% endfor %}
