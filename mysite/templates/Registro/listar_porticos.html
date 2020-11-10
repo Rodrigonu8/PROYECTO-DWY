@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Listar carreras</title>
+    <title>Listar porticos</title>
   </head>
 
   <body>
@@ -12,8 +12,8 @@
 
     {% for p in porticos %}
         <div>
-            <p> Nombre: {{ p.id_portico }} </p>
-            <p>Semestres: {{ p.ubicacion }} </p>
+            <p> nro portico: {{ p.id_portico }} </p>
+            <p> ubicacion: {{ p.ubicacion }} </p>
         </div>
         <br>
     {% endfor %}
