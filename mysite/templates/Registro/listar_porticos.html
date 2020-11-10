@@ -14,6 +14,12 @@
         <div>
             <p> nro portico: {{ p.id_portico }} </p>
             <p> ubicacion: {{ p.ubicacion }} </p>
+            <td>
+              <a class="btn btn-primary" href="{% url 'edit_portico' p.id_portico %}">Editar</a>
+              <a class="btn btn-danger" href="{% url 'del_portico' p.id_portico %}">Eliminar</a>
+          </td>           
+          <br>
+
         </div>
         <br>
     {% endfor %}

@@ -22,9 +22,9 @@ urlpatterns = [
     # llamando a la clases 
     path('add_portico', views.PorticoCreate.as_view(), name="add_portico"),
 
-    path('list_portico/', views.PorticoList.as_view(), name='list_portico'),
+    path('listarPorticos', views.PorticoList.as_view(), name='listar_porticos'),
 
     path('edit_portico/<int:pk>', views.PorticoUpdate.as_view(), name='edit_portico'),
 
-        path('del_portico/<int:pk>', views.PorticoDelete.as_view(), name='del_portico'),
+    path('del_portico/<int:pk>', views.PorticoDelete.as_view(), name='del_portico'),
 ]
