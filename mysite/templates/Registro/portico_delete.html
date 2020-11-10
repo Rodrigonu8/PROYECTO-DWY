@@ -5,7 +5,7 @@
         <form method="post">
             {% csrf_token %}
 
-            <p class="delete-msg">¿Estas seguro de que quieres borrar el portico nro {{ object.id_portico }}?</p>
+            <p class="delete-msg">¿Estas seguro de que quieres borrar el pórtico nro {{ object.id_portico }}?</p>
 
             <a href="{% url 'listar_porticos' %}" class="btn btn-secondary">NO</a>
             <button class="btn btn-primary" type="submit">Si</button>
