@@ -5,6 +5,10 @@
 <form method="POST">
     {% csrf_token %}
     {{ form.as_table }}
-    <button type="submit">GRABAR</button>
+    
+    <br>
+    <button class="btn btn-primary" type="submit">GRABAR</button>
+    <br>
+    <br>
 </form>
 {% endblock %}

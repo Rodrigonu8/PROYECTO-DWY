@@ -38,13 +38,20 @@
             <div class="btnid">
                 <a type="button" class="btn btn-primary btn-lg" href="{% url 'listar_porticos' %}">Listar pórticos</a>
             </div>
+            <div class="btnid">
+                <a type="button" class="btn btn-primary btn-lg" href="{% url 'agregar_portico' %}">Agregar pórticos</a>
+            </div>
+            <div class="btnid">
+                <a type="button" class="btn btn-primary btn-lg" href="{% url 'agregar_bicicleta' %}">Agregar
+                    bicicletas</a>
+            </div>
             {% endif %}
             <div class="btnid">
                 <a type="button" class="btn btn-primary btn-lg" href="{% url 'logout' %}">Cerrar sesión</a>
             </div>
             {% endif %}
             {% endblock %}
-            
+
 
             <!-- carrusel -->
             <div class="row" id="carousel">
