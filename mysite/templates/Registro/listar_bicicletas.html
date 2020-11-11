@@ -1,28 +1,32 @@
-!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Listar bicicletas</title>
-  </head>
+{% extends 'Registro/base.html' %}
 
-  <body>
-    <h2>Lista de bicicletas</h2>
-
+{% block content %}
+<div>
+  <h2>Lista de bicicletas</h2>
+  <thead>
+    <tr>
+      <th>Id Bicicleta</th>
+      <th>Modelo</th>
+      <th>Pórtico</th>
+      <th>Comuna</th>
+      <th>Modificar Bicicleta</th>
+      <th>Eliminar Bicicleta</th>
+    </tr>
     {% for b in bicicletas %}
-        <div>
-            <p> nro bicicleta: {{ b.id_bicicleta }} </p>
-            <p> nro pórtico: {{ b.id_portico }} </p>
-            <p> modelo: {{ b.modelo }} </p>
-            <p> en pórtico: {{ b.candado }} </p>
-            <td>
-              <a class="btn btn-primary" href="{% url 'edit_bicicleta' b.id_bicicleta %}">Editar</a>
-              <a class="btn btn-danger" href="{% url 'del_bicicleta' b.id_bicicleta %}">Eliminar</a>
-          </td>    
-        </div>
-        <br>
+    <tr>
+      <td> nro bicicleta: {{ b.id_bicicleta }} </td>
+      <td> nro pórtico: {{ b.id_portico }} </td>
+      <td> modelo: {{ b.modelo }} </td>
+      <td> en pórtico: {{ b.candado }} </td>
+      <td><a class="btn btn-primary" href="{% url 'edit_bicicleta' b.id_bicicleta %}">Editar</a></td>
+      <td>
+        <a class="btn btn-danger" href="{% url 'del_bicicleta' b.id_bicicleta %}">Eliminar</a>
+      </td>
+    </tr>
     {% endfor %}
+  </thead>
+</div>
+{% endblock %}
 
-  </body>
-</html>
+
+

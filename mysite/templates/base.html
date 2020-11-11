@@ -47,6 +47,8 @@
 
             <span class="ml-md-5" style="color: blue;"><strong>Usuario: {{ user.get_username }}</strong></span>
             {% endif %}
+            {% endblock %}
+            {% block content %} {% endblock content %}
 
             <!-- carrusel -->
             <div class="row" id="carousel">
@@ -99,8 +101,7 @@
         </div>
     </div>
     </div>
-    {% endblock %}
-    {% block content %} {% endblock content %}
+
 
     {% block javascript %} {% endblock javascript %}
 </body>
