@@ -22,11 +22,9 @@
 
             <div class="inicio">
                 <br>
-                <p>Usa MoBike para el desplazamiento en la comuna de La Reina </p>
-                <p>Busca los aparcamientos y activa tu servicio ecológico!</p>
                 <br>
-
             </div>
+            {% block content %} {% endblock content %}
             {% if not user.is_authenticated %}
             <div class="btnid">
                 <a type="button" class="btn btn-primary btn-lg" href="{% url 'registrar_usuario' %}">Registrar</a>
@@ -44,11 +42,9 @@
             <div class="btnid">
                 <a type="button" class="btn btn-primary btn-lg" href="{% url 'logout' %}">Cerrar sesión</a>
             </div>
-
-            <span class="ml-md-5" style="color: blue;"><strong>Usuario: {{ user.get_username }}</strong></span>
             {% endif %}
             {% endblock %}
-            {% block content %} {% endblock content %}
+            
 
             <!-- carrusel -->
             <div class="row" id="carousel">
