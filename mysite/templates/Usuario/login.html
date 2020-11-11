@@ -18,13 +18,13 @@ Registro
         {% csrf_token %}
 
         <div class="form-group">
-            <label for="username">Nombre de Usuario</label><br>
+            <label for="username">Nombre de usuario</label><br>
             <input name="username" class="form-control" type="text"/>
             <div class="bg-danger mt-1">{{ form.errors.username }}</div>
         </div>
 
         <div class="form-group">
-            <label for="password">Password</label><br>
+            <label for="password">Contraseña</label><br>
             <input name="password" class="form-control" type="password"/>
             <div class="bg-danger mt-1">{{ form.errors.password }}</div>
         </div>

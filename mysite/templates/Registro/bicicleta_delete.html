@@ -5,10 +5,10 @@
         <form method="post">
             {% csrf_token %}
 
-            <p class="delete-msg">¿Estas seguro de que quieres borrar la bicicleta nro {{ object.id_bicicleta }}?</p>
+            <p class="delete-msg">¿Estás seguro de que quieres borrar la bicicleta nro {{ object.id_bicicleta }}?</p>
 
-            <a href="{% url 'listar_bicicletas' %}" class="btn btn-secondary">NO</a>
-            <button class="btn btn-primary" type="submit">Si</button>
+            <a href="{% url 'listar_bicicletas' %}" class="btn btn-secondary">No</a>
+            <button class="btn btn-primary" type="submit">Sí</button>
         </form>
     </div>
 {% endblock %}

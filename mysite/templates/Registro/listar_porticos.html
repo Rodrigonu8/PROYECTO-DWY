@@ -1,28 +1,25 @@
-!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Listar porticos</title>
-  </head>
+{% extends 'Registro/base.html' %}
 
-  <body>
-    <h2>Lista de porticos</h2>
-
+{% block content %}
+<div>
+  <h2>Lista de pórticos</h2>
+  <thead>
+    <tr>
+      <th>Id Pórtico</th>
+      <th>Ubicación</th>
+      <th>Modificar Pórtico</th>
+      <th>Eliminar Pórtico</th>
+    </tr>
     {% for p in porticos %}
-        <div>
-            <p> nro portico: {{ p.id_portico }} </p>
-            <p> ubicacion: {{ p.ubicacion }} </p>
-            <td>
-              <a class="btn btn-primary" href="{% url 'edit_portico' p.id_portico %}">Editar</a>
-              <a class="btn btn-danger" href="{% url 'del_portico' p.id_portico %}">Eliminar</a>
-          </td>           
-          <br>
-
-        </div>
-        <br>
+    <tr>
+      <td> {{ p.id_portico }} </td>
+      <td> {{ p.ubicacion }} </td>
+      <td><a class="btn btn-primary" href="{% url 'edit_portico' p.id_portico %}">Editar</a></td>
+      <td>
+        <a class="btn btn-danger" href="{% url 'del_portico' p.id_portico %}">Eliminar</a>
+      </td>
+    </tr>
     {% endfor %}
-
-  </body>
-</html>
+  </thead>
+</div>
+{% endblock %}

@@ -6,18 +6,18 @@
   <thead>
     <tr>
       <th>Id Bicicleta</th>
-      <th>Modelo</th>
       <th>Pórtico</th>
-      <th>Comuna</th>
+      <th>Modelo</th>
+      <th>Candado</th>
       <th>Modificar Bicicleta</th>
       <th>Eliminar Bicicleta</th>
     </tr>
     {% for b in bicicletas %}
     <tr>
-      <td> nro bicicleta: {{ b.id_bicicleta }} </td>
-      <td> nro pórtico: {{ b.id_portico }} </td>
-      <td> modelo: {{ b.modelo }} </td>
-      <td> en pórtico: {{ b.candado }} </td>
+      <td> {{ b.id_bicicleta }} </td>
+      <td> {{ b.id_portico }} </td>
+      <td> {{ b.modelo }} </td>
+      <td> {{ b.candado }} </td>
       <td><a class="btn btn-primary" href="{% url 'edit_bicicleta' b.id_bicicleta %}">Editar</a></td>
       <td>
         <a class="btn btn-danger" href="{% url 'del_bicicleta' b.id_bicicleta %}">Eliminar</a>

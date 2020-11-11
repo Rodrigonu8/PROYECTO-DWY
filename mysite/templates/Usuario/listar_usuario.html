@@ -6,13 +6,13 @@
    {% if object_list %}
         {% for user in object_list %}
             <p>Nombre: {{ user.username }}</p>
-            <p>email: {{ user.email }}</p>      
+            <p>Correo electrónico: {{ user.email }}</p>      
 
             <br>
         {% endfor %}
         
         {% else %}
-        <h1>No hay registros de user</h1>
+        <h1>No hay registros de usuarios</h1>
         {% endif %}
 
 {% endblock %}
