@@ -36,17 +36,13 @@
             {% if user.is_authenticated %}
             {% if user.is_superuser %}
             <div class="btnid">
-                <a type="button" class="btn btn-primary btn-lg" href="{% url 'list_portico' %}">Listar pórticos</a>
+                <a type="button" class="btn btn-primary btn-lg" href="{% url 'list_portico' %}">Pórticos</a>
             </div>
             <div class="btnid">
-                <a type="button" class="btn btn-primary btn-lg" href="{% url 'agregar_portico' %}">Agregar pórticos</a>
+                <a type="button" class="btn btn-primary btn-lg" href="{% url 'listar_bicicletas' %}">Bicicletas</a>
             </div>
             <div class="btnid">
-                <a type="button" class="btn btn-primary btn-lg" href="{% url 'listar_bicicletas' %}">Listar bicicletas</a>
-            </div>
-            <div class="btnid">
-                <a type="button" class="btn btn-primary btn-lg" href="{% url 'agregar_bicicleta' %}">Agregar
-                    bicicletas</a>
+                <a type="button" class="btn btn-primary btn-lg" href="{% url 'ejecutivo_list' %}">Ejecutivo</a>
             </div>
             {% endif %}
             <div class="btnid">

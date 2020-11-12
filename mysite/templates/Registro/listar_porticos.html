@@ -2,7 +2,13 @@
 
 {% block content %}
 <div>
+  
+  
   <h2>Lista de Pórticos</h2>
+  <br>
+
+
+  <br>
   <thead>
     <tr>
       <th>Id Pórtico</th>
@@ -21,5 +27,6 @@
     </tr>
     {% endfor %}
   </thead>
+  <a class="btn btn-primary" role="button" href="{% url 'agregar_portico' %}">Agregar</a>
 </div>
 {% endblock %}
