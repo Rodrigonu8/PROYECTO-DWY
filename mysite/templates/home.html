@@ -5,15 +5,15 @@
 {% block content %}
 <div class="jumbotron">
     <h2>Página principal</h2>
-    <br>
+    <div class="column">
     <p>Usa MoBike para el desplazamiento en la comuna de La Reina </p>
     <p>Busca los aparcamientos y activa tu servicio ecológico!</p>
-    <br>
+    </div>
     {% if user.is_authenticated %}
-    <p></p>
-    <p>Your name is - {{user.first_name}} {{user.last_name}}</p>
+    <div >
+        <p>Your name is - {{user.first_name}} {{user.last_name}}</p>
     <p>Your email is - {{user.email}}</p>
-    <br><br>
+    </div>
     {% else %}
 
     {% endif %}

@@ -74,14 +74,14 @@ class PorticoCreate(CreateView):
     model = Portico
     form_class = porticoForm
     template_name = 'Registro/agregar_portico.html'
-    success_url = reverse_lazy("listar_porticos")
+    success_url = reverse_lazy("list_portico")
 
 # clase listar portico
 
 
 class PorticoList(ListView):
     model = Portico
-    template_name = 'Registro/listar_porticos.html'
+    template_name = 'Registro/listar_porticos_filtros.html'
 
 # clase modificar portico
 
@@ -90,7 +90,7 @@ class PorticoUpdate(UpdateView):
     model = Portico
     form_class = porticoForm
     template_name = 'Registro/editar_portico.html'
-    success_url = reverse_lazy('listar_porticos')
+    success_url = reverse_lazy('list_portico')
 
 # clase borrar portico
 
@@ -98,7 +98,7 @@ class PorticoUpdate(UpdateView):
 class PorticoDelete(DeleteView):
     model = Portico
     template_name = 'Registro/portico_delete.html'
-    success_url = reverse_lazy('listar_porticos')
+    success_url = reverse_lazy('list_portico')
 
 
 # agregar bicicleta
