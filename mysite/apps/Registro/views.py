@@ -1,21 +1,25 @@
 from django.shortcuts import render, redirect
-from django.db.models import Q 
+from django.db.models import Q
 from .models import Portico, Bicicleta
 from .forms import porticoForm, bicicletaForm
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse, reverse_lazy
 
-#listar porticos y bicicletas
+# listar porticos y bicicletas
+
+
 def listar_porticos(request):
     porticos = Portico.objects.all()
     return render(request, "Registro/listar_porticos.html", {'porticos': porticos})
 
+
 def listar_bicicletas(request):
     bicicletas = Bicicleta.objects.all()
-    return render(request, "Registro/listar_bicicletas.html", {'bicicletas': bicicletas})  
+    return render(request, "Registro/listar_bicicletas.html", {'bicicletas': bicicletas})
 
  # agregar portico
- 
+
+
 def agregar_portico(request):
     if request.method == "POST":
         form = porticoForm(request.POST)
@@ -74,11 +78,14 @@ class PorticoCreate(CreateView):
 
 # clase listar portico
 
+
 class PorticoList(ListView):
     model = Portico
     template_name = 'Registro/listar_porticos.html'
 
 # clase modificar portico
+
+
 class PorticoUpdate(UpdateView):
     model = Portico
     form_class = porticoForm
@@ -87,11 +94,11 @@ class PorticoUpdate(UpdateView):
 
 # clase borrar portico
 
+
 class PorticoDelete(DeleteView):
     model = Portico
     template_name = 'Registro/portico_delete.html'
     success_url = reverse_lazy('listar_porticos')
-
 
 
 # agregar bicicleta
@@ -119,6 +126,7 @@ def borrar_bicicleta(request, bicicleta_id):
     return redirect('listar_bicicletas')
 
 # editar bicicleta
+
 
 def editar_bicicleta(request, bicicleta_id):
     # Recuperamos la instancia de la carrera
@@ -153,11 +161,14 @@ class BicicletaCreate(CreateView):
 
 # clase listar bicicleta
 
+
 class BicicletaList(ListView):
     model = Bicicleta
     template_name = 'Registro/listar_bicicletas.html'
 
 # clase modificar bicicleta
+
+
 class BicicletaUpdate(UpdateView):
     model = Bicicleta
     form_class = bicicletaForm
@@ -166,7 +177,32 @@ class BicicletaUpdate(UpdateView):
 
 # clase borrar bicicleta
 
+
 class BicicletaDelete(DeleteView):
     model = Bicicleta
     template_name = 'Registro/bicicleta_delete.html'
     success_url = reverse_lazy('listar_bicicletas')
+
+# filtros
+
+
+def ListPortico(request):
+    lista = Portico.objects.all()
+    ubicacion = request.GET.get('ubicacion')
+    id_portico = request.GET.get('id-portico')
+
+    # if 'btn-buscarIdPorticos' in request.GET:
+    #     if cant_semestres:
+    #         lista = Portico.objects.filter(semestres__gte=cant_semestres)
+    if 'btn-id-portico' in request.GET:
+        if id_portico:
+            lista = Portico.objects.filter(id_portico__icontains=id_portico)
+
+    elif 'btn-ubicacion' in request.GET:
+        if ubicacion:
+            lista = Portico.objects.filter(ubicacion__icontains=ubicacion)
+
+    data = {
+        'object_list': lista
+    }
+    return render(request, 'Registro/listar_porticos_filtros.html', data)
